@@ -1,13 +1,18 @@
 <template>
   <div id="app">
+    <h1>Todo application</h1>
+    <hr>
+    <TodoList />
   </div>
 </template>
 
 <script>
-
+import TodoList from '@/components/TodoList'
 export default {
   name: 'App',
   components: {
+    // TodoList: TodoList когда ключ и значение совпадают, можно 1 раз указать имя компонента
+    TodoList
   }
 }
 </script>
