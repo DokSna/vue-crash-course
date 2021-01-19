@@ -7,8 +7,8 @@
       <Todoitem
         v-for="todo of todos"
         v-bind:todo="todo"
+        v-bind:key="todo.id"
       />
-      
     </ul>
   </div>
 </template>
@@ -22,3 +22,11 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+</style>
