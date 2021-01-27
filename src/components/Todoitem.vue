@@ -7,10 +7,12 @@
         name=""
         id=""
       />
-      <strong>{{ todo.id }}</strong>
+      <strong>{{ index + 1 }}</strong>
       {{ todo.title }}
     </span>
-    <button class="rm" v-on:click="$emit('remove-todo', todo.id)">&times;</button>
+    <button class="rm" v-on:click="$emit('remove-todo', todo.id)">
+      &times;
+    </button>
   </li>
 </template>
 
@@ -21,6 +23,7 @@ export default {
       type: Object,
       reauired: true,
     },
+    index: Number,
   },
 };
 </script>

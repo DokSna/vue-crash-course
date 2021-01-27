@@ -5,8 +5,9 @@
       <!-- {{  todos }} -->
 
       <Todoitem
-        v-for="todo of todos"
+        v-for="(todo, i) of todos"
         v-bind:todo="todo"
+        v-bind:index="i"
         v-bind:key="todo.id"
         v-on:remove-todo="removeTodo"
       />
