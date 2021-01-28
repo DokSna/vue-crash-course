@@ -15,19 +15,27 @@ export default {
   data() {
     return {
       todos: [
-        { id: 1, title: 'Купить хлеб', completed: false },
-        { id: 2, title: 'Купить масло', completed: false },
-        { id: 3, title: 'Купить пиво', completed: false },
+        // { id: 1, title: 'Купить хлеб', completed: false },
+        // { id: 2, title: 'Купить масло', completed: false },
+        // { id: 3, title: 'Купить пиво', completed: false },
       ],
     };
+  },
+  mounted() {
+    fetch('https://jsonplaceholder.typicode.com/todos?_limit=8')
+      .then((response) => response.json())
+      // .then((json) => console.log(json));
+      .then((json) => {
+        this.todos = json;
+      });
   },
   methods: {
     removeTodo(id) {
       this.todos = this.todos.filter((t) => t.id !== id);
     },
     addTodo(todo) {
-      this.todos.push(todo)
-    }
+      this.todos.push(todo);
+    },
   },
   components: {
     // TodoList: TodoList когда ключ и значение совпадают, можно 1 раз указать имя компонента
