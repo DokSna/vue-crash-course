@@ -5,7 +5,7 @@
     <hr />
     <AddTodo @add-todo="addTodo" />
     <hr />
-    <Loader v-if="loading"/>
+    <Loader v-if="loading" />
     <TodoList
       v-else-if="todos.length"
       v-bind:todos="todos"
@@ -36,8 +36,11 @@ export default {
       .then((response) => response.json())
       // .then((json) => console.log(json));
       .then((json) => {
-        this.todos = json;
-        this.loading = false;
+        //   добавляем искусственную задержку
+        setTimeout(() => {
+          this.todos = json;
+          this.loading = false;
+        }, 1000);
       });
   },
   methods: {
