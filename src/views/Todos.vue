@@ -5,8 +5,9 @@
     <hr />
     <AddTodo @add-todo="addTodo" />
     <hr />
+    <Loader v-if="loading"/>
     <TodoList
-      v-if="todos.length"
+      v-else-if="todos.length"
       v-bind:todos="todos"
       @remove-todo="removeTodo"
     />
@@ -17,6 +18,7 @@
 <script>
 import TodoList from '@/components/TodoList';
 import AddTodo from '@/components/AddTodo';
+import Loader from '@/components/Loader';
 export default {
   name: 'App',
   data() {
@@ -26,6 +28,7 @@ export default {
         // { id: 2, title: 'Купить масло', completed: false },
         // { id: 3, title: 'Купить пиво', completed: false },
       ],
+      loading: true,
     };
   },
   mounted() {
@@ -34,6 +37,7 @@ export default {
       // .then((json) => console.log(json));
       .then((json) => {
         this.todos = json;
+        this.loading = false;
       });
   },
   methods: {
@@ -48,6 +52,7 @@ export default {
     // TodoList: TodoList когда ключ и значение совпадают, можно 1 раз указать имя компонента
     TodoList,
     AddTodo,
+    Loader,
   },
 };
 </script>
