@@ -7,6 +7,6 @@
       eum animi, nostrum blanditiis voluptates in aliquid esse reprehenderit
       odio et?
     </p>
-    <a href="/todos">Todos</a>
+    <router-link to="/todos">Todos</router-link>
   </div>
 </template>
